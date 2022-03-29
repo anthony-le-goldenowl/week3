@@ -3,7 +3,7 @@
   | --------------------- |:------------------------------:|
   | 3/25/2022             | [Detail](#325)                 |
   | 3/28/2022             | [Detail](#328)                 |
-  |            |                  |
+  | 3/29/2022             | [Detail](#329)                 |
 
 ### (3/25/2022) <a name="325"></a>
 
@@ -23,7 +23,24 @@
 - Number (integer and float)
 - **Boolean**
 - **String**
+```ruby:
+"hello".capitalize   #=> "Hello"
+"HELLO".downcase     #=> "hello"
+"hello".center(9)    #=> "  hello  "
+"  hello  ".strip    #=> "hello"
 
+"hello world".split(" ")   #=> ["hello", "world"]
+```
+
+```ruby:
+# Replace one character with another
+"noob".gsub("o","0")   #=> "n00b"
+
+# (Advanced) Replace a regular expression
+"Ruby really rocks".gsub(/[aieou]/,'')   #=> "Rby rlly rcks"
+```
+
+[String docs](https://ruby-doc.org/core-2.7.0/String.html)
 
 
 ![String](https://user-images.githubusercontent.com/101615624/160325736-61753303-3de8-43ef-a5e8-7ecca6bea35f.png)
@@ -60,3 +77,11 @@ You can use any Ruby object as a key or value, even an array, so the following e
 
 3. **IF...ELSE**
 4. **Module** [Link](https://www.tutorialspoint.com/ruby/ruby_modules.htm)
+(3/29/2022) <a name="329"></a>
+- In Ruby, modules are somewhat similar to classes: they are things that hold methods, just like classes do. However, modules **can not be instantiated.** I.e., it is not possible to create objects from a module. And modules, unlike classes, therefore **do not have a method new.**
+- With modules you can share methods between classes: Modules can be included into classes, and this makes their methods available on the class, just as if we’d copied and pasted these methods over to the class definition.
+5. **Block, Proc, Lambda** [Link](https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/)
+
+![Screenshot from 2022-03-29 17-21-31](https://user-images.githubusercontent.com/101615624/160590940-14c56469-2b7e-4c10-81db-6a7bd9060390.png)
+
+- *Yield in block:*
