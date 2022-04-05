@@ -65,11 +65,8 @@ class BirdCount
   end
 
   def total
-    @sum = 0
-    @birds_per_day.each do |bird|
-      @sum = @sum + bird
-    end
-    return @sum
+    sum = 0
+    sum = @birds_per_day.sum
   end
 
   def busy_days
@@ -83,10 +80,8 @@ class BirdCount
   end
 
   def day_without_birds?
-    @birds_per_day.each do |bird|
-      if bird == 0
-        return true
-      end
+    if (@birds_per_day.include?(0))
+      return true
     end
     return false
   end

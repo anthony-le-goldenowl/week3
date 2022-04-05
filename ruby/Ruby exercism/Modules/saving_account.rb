@@ -40,32 +40,24 @@ Note that the value returned is an instance of .Integer
 
 module SavingsAccount
   def self.interest_rate(balance)
-    if balance < 0
-      return -3.213
-    elsif balance < 1000
-      return 0.5
-    elsif (balance < 5000 and balance >= 1000)
-      return 1.621
-    else 
-      return 2.475
-    end
+    return -3.213 if balance.negative?
+    return 0.5 if (0...1000).include?(balance)
+    return 1.621 if (1000...5000).include?(balance)
+    2.475
   end
 
   def self.annual_balance_update(balance)
-    if (interest_rate(balance) > 0)
-      return (balance + balance * interest_rate(balance) / 100).to_f
-    else 
-      return (balance - balance * interest_rate(balance) / 100).to_f
-    end
+    return (balance - balance * interest_rate(balance) / 100).to_f if interest_rate(balance).negative?
+    return (balance + balance * interest_rate(balance) / 100).to_f
   end
 
   def self.years_before_desired_balance(current_balance, desired_balance)
     @years_before_desired_balance = 0
     until current_balance >= desired_balance
         current_balance = annual_balance_update(current_balance)
-        @years_before_desired_balance = @years_before_desired_balance + 1
+        @years_before_desired_balance += 1
     end
-    return @years_before_desired_balance
+    @years_before_desired_balance
   end
 end
 
